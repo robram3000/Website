@@ -1,0 +1,36 @@
+$Nav-primary-color : #7BA693;
+$NavColor-fonts : #FFFFFF;
+
+$Bdy-color-Fonts : #5B8153;
+
+
+main{
+    display: flex;
+    padding: 10px 10px 10px 10px;    
+
+    form{
+        display: flex;
+        align-items: center;
+        border-color: 0.5px solid silver;
+        width: 700px;
+        height: 1000px;
+
+        .Container-content{
+            width: inherit;
+            height: inherit;
+            margin: 10px 10px 10px 10px ;
+            border-radius: 10px;
+            .Container-labelandtextbox
+            {
+
+                
+            }
+
+
+        }
+
+
+    }
+
+
+}
