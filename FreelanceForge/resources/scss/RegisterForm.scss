@@ -1,0 +1,131 @@
+$Nav-primary-color: #7BA693;
+$NavColor-fonts: #FFFFFF;
+
+$Bdy-color-Fonts: #5B8153;
+$lbl-color-Fonts: #51823C;
+
+body {
+    display: flex;
+    justify-content: center;
+    position: relative; 
+
+    .overlay {
+        position: absolute; 
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('path/to/your/image.jpg'); 
+        background-size: cover;
+        background-position: center; 
+        opacity: 0.5;
+        z-index: -1; 
+    }
+
+    main {
+        width: 700px;
+        h1 {
+            color: $Bdy-color-Fonts;
+        }
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            background: rgba(255, 255, 255, 0.8); 
+            border-radius: 10px;
+            padding: 20px; 
+       
+
+            .Container-content-inline {
+                display: flex;
+                flex-direction: row;
+
+                .Container-labelandtextbox-inline {
+                    width: 100%; 
+                    display: flex;
+                    flex-direction: column;
+                    padding: 5px;
+
+                    input {
+                        height: 15px; 
+                        width: 90%;
+                        border-radius: 5px;
+                        border: 0.5px solid silver;
+                        padding: 10px;
+                        color: rgb(119, 16, 16);
+
+                        &::placeholder {
+                            color: rgb(201, 200, 200);
+                            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                        }
+
+                        &:focus {
+                            border-color: black;
+                            outline: none;
+                        }
+                    }
+
+                    label {
+                        color: $lbl-color-Fonts;
+                        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                        line-height: 30px;
+                    }
+                }
+            }
+
+            .Container-content {
+                border-radius: 10px;
+
+                .Container-labelandtextbox {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 5px;
+
+                    input {
+                        height: 15px; 
+                        border-radius: 5px;
+                        border: 0.5px solid silver;
+                        padding: 10px;
+                        color: rgb(119, 16, 16);
+
+                        &::placeholder {
+                            color: rgb(201, 200, 200);
+                            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                        }
+
+                        &:focus {
+                            border-color: black;
+                            outline: none;
+                        }
+                    }
+
+                    label {
+                        color: $lbl-color-Fonts;
+                        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                        line-height: 30px;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            width: 90%; 
+            padding: 5px;
+
+            form {
+                .Container-content-inline {
+                    flex-direction: column; 
+                }
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            width: 80%; 
+        }
+    }
+}
