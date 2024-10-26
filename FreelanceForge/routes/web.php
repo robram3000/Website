@@ -12,3 +12,8 @@ Route::get('/RegisterForm', function () {
     return view('User.RegisterForm');
 });
 
+Route::get('/Login', function () {
+    return view('User.LoginForm');
+});
+
+

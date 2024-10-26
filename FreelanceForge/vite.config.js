@@ -7,7 +7,8 @@ export default defineConfig({
             input: [
                 'resources/css/app.css', 
                 'resources/js/app.js',
-                'resources/scss/RegisterForm.scss'  
+                'resources/scss/RegisterForm.scss',
+                'resources/scss/Loginform.scss' 
             ],
             refresh: true,
         }),

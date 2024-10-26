@@ -1,6 +1,5 @@
 $Nav-primary-color: #7BA693;
 $NavColor-fonts: #FFFFFF;
-
 $Bdy-color-Fonts: #5B8153;
 $lbl-color-Fonts: #51823C;
 
@@ -15,7 +14,7 @@ body {
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('path/to/your/image.jpg'); 
+        background-image: url(''); 
         background-size: cover;
         background-position: center; 
         opacity: 0.5;
@@ -24,7 +23,10 @@ body {
 
     main {
         width: 700px;
-        h1 {
+        h2 {
+            color: $Bdy-color-Fonts;
+        }
+        h4{
             color: $Bdy-color-Fonts;
         }
 
@@ -113,6 +115,28 @@ body {
             }
         }
 
+        .Container-Button
+        {
+            display: flex;
+            justify-content: flex-end;
+        
+            width: 100%;
+            margin-top: 60px;
+
+            button 
+            {
+                width:  15%;
+                height: 30px;
+                border-radius: 5px;
+                background-color: $Nav-primary-color;
+                padding: 5px;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+
+        }
+
         @media (max-width: 768px) {
             width: 90%; 
             padding: 5px;
@@ -123,6 +147,7 @@ body {
                 }
             }
         }
+
 
         @media (min-width: 769px) and (max-width: 1200px) {
             width: 80%; 

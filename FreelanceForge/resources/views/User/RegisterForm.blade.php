@@ -12,7 +12,8 @@
     <div class="overlay"></div> <!-- Overlay image container -->
     <main>    
         <form action="" method="POST" class="Form-container">
-            <h1>Register Account</h1>
+            <h2>Register Account</h2>
+            <h4>Details /</h4>
             <div class="Container-content-inline">
                 <div class="Container-labelandtextbox-inline">
                     <label for="">Firstname</label>
@@ -47,7 +48,7 @@
             </div>
 
             <div class="Container-Button">
-                <button type="submit">Submit</button>
+                <button type="submit">Next</button>
             </div>
         </form>         
     </main>
