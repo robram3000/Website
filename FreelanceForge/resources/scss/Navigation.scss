@@ -1,0 +1,46 @@
+$nav-color: rgba(255, 255, 255, 0.485); 
+$nav-color-font: #7BA693;
+$fonts: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+.navigation {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $nav-color; 
+    color: $nav-color-font;
+    font-family: $fonts;
+    border-bottom: 3px solid rgb(93, 130, 94);
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+
+    .navigation-logo {
+        h4 {
+            margin: 0;
+            font-size: 2em;
+            color: $nav-color-font;
+        }
+    }
+
+    .navigation-control-page {
+        ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                a {
+                    color: $nav-color-font;
+                    text-decoration: none;
+                    font-size: 1.2em;
+                    font-family: $fonts;
+                }
+            }
+        }
+    }
+}

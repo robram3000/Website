@@ -21,12 +21,10 @@ body {
         z-index: -1; 
     }
 
-    main {
+    .registration-main {
         width: 700px;
-        h2 {
-            color: $Bdy-color-Fonts;
-        }
-        h4{
+
+        .form-title, .form-subtitle {
             color: $Bdy-color-Fonts;
         }
 
@@ -34,20 +32,19 @@ body {
         align-items: center;
         justify-content: center;
 
-        form {
+        .registration-form {
             display: flex;
             flex-direction: column;
             width: 500px;
             background: rgba(255, 255, 255, 0.8); 
             border-radius: 10px;
             padding: 20px; 
-       
 
-            .Container-content-inline {
+            .inline-container {
                 display: flex;
                 flex-direction: row;
 
-                .Container-labelandtextbox-inline {
+                .label-input-group {
                     width: 100%; 
                     display: flex;
                     flex-direction: column;
@@ -80,10 +77,10 @@ body {
                 }
             }
 
-            .Container-content {
+            .full-width-container {
                 border-radius: 10px;
 
-                .Container-labelandtextbox {
+                .label-input-group {
                     display: flex;
                     flex-direction: column;
                     padding: 5px;
@@ -115,17 +112,14 @@ body {
             }
         }
 
-        .Container-Button
-        {
+        .button-container {
             display: flex;
             justify-content: flex-end;
-        
             width: 100%;
             margin-top: 60px;
 
-            button 
-            {
-                width:  15%;
+            .submit-button {
+                width: 15%;
                 height: 30px;
                 border-radius: 5px;
                 background-color: $Nav-primary-color;
@@ -134,20 +128,18 @@ body {
                 border: none;
                 cursor: pointer;
             }
-
         }
 
         @media (max-width: 768px) {
             width: 90%; 
             padding: 5px;
 
-            form {
-                .Container-content-inline {
+            .registration-form {
+                .inline-container {
                     flex-direction: column; 
                 }
             }
         }
-
 
         @media (min-width: 769px) and (max-width: 1200px) {
             width: 80%; 

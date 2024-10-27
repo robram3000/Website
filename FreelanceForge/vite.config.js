@@ -8,7 +8,11 @@ export default defineConfig({
                 'resources/css/app.css', 
                 'resources/js/app.js',
                 'resources/scss/RegisterForm.scss',
-                'resources/scss/Loginform.scss' 
+                'resources/scss/Loginform.scss',
+                'resources/scss/Navigation.scss',
+                'resources/scss/Base.scss',
+                'resources/scss/Password.scss',
+                'resources/scss/Roletype.scss'
             ],
             refresh: true,
         }),
