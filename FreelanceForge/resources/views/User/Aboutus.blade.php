@@ -1,3 +1,4 @@
+@include('User.Layout.Navigation')
 
 <section>
     <div>
@@ -26,7 +27,6 @@
                 transparency, and fairness. We are committed to providing a platform that is safe, easy to use, and accessible to freelancers of all backgrounds. Our vision is to create a world where freelancers thrive, where projects are more than just gigs – they’re stepping stones to greater success.
             </p>
         </div>
-
         <div>
             <p>
                 Join our community and start shaping your future today. Let FreelanceForge help you turn your passion into a profitable career.
@@ -34,3 +34,4 @@
         </div>   
     </div>
 </section>
+@include('User.Layout.Footer')

@@ -1,3 +1,4 @@
+@include('User.Layout.Navigation')
 <section>
     <div>
         <div>
@@ -35,7 +36,6 @@
             </div>
         </div>
 
-
         <div>
             <div>
                 <h3>
@@ -50,3 +50,4 @@
         </div>
     </div>
 </section>
+@include('User.Layout.Footer')

@@ -7,31 +7,71 @@ $disabled-color: #ccc;
 $text-color: #333;
 
 .login-container {
-    max-width: 400px; // Adjust the width as necessary
-    margin: 0 auto;
-    padding: 20px;
+    display: flex;
+    max-width: 1250px;
+    margin: 100px auto;
     background-color: $background-color;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    
-    .login-form {
-        text-align: center;
 
+    .login-image-box {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 8px 0 0 8px;
+        position: relative;
+
+        .image-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            color: white;
+            font-size: 24px;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0.6;
+                border-radius: 8px 0 0 8px;
+            }
+
+            p {
+                position: relative;
+                z-index: 2;
+                color: white;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .login-form {
+        flex: 1;
+        padding: 20px;
+        width: 600px;
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 0 8px 8px 0;
+        
         .login-form-logo {
             margin-bottom: 20px;
+            text-align: center;
+
             img {
-                max-width: 100%; // Ensure the logo is responsive
+                max-width: 100%;
                 height: auto;
             }
         }
 
         .login-form-inputs {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
             .login-form-input-group {
-                width: 100%;
                 margin-bottom: 15px;
 
                 label {
@@ -50,49 +90,72 @@ $text-color: #333;
 
                     &:focus {
                         border-color: $primary-color;
-                        outline: none; // Remove the default outline
+                        outline: none;
                     }
                 }
             }
+                
+         .login-form-actions {
+    text-align: center;
 
-            .login-form-actions {
-                width: 100%;
+    .login-button {
+        padding: 10px;
+        width: 100%;
+        background-color: $primary-color;
+        color: #fff;
+        border: none;
+        border-radius: $input-border-radius;
+        cursor: pointer;
+        transition: background 0.3s ease;
 
-                .login-button {
-                    padding: 10px;
-                    width: 100%;
-                    background-color: $primary-color;
-                    color: #fff;
-                    border: none;
-                    border-radius: $input-border-radius;
-                    cursor: pointer;
-                    transition: background 0.3s ease;
+        &:hover {
+            background-color: $hover-color;
+        }
 
-                    &:hover {
-                        background-color: $hover-color;
-                    }
+        &:disabled {
+            background-color: $disabled-color;
+            cursor: not-allowed;
+        }
+    }
 
-                    &:disabled {
-                        background-color: $disabled-color;
-                        cursor: not-allowed;
-                    }
-                }
+    .divider {
+        margin: 15px 0;
+        border: none;
+        border-top: 1px solid $input-border-color; // Light gray line
+        width: 100%; 
+    }
 
-                .signup-prompt {
-                    margin-top: 10px;
-                    font-size: 14px;
-                    color: $text-color;
+    .forgot-password {
+        margin-top: 10px;
+        font-size: 14px;
+        color: $primary-color;
 
-                    a {
-                        color: $primary-color;
-                        text-decoration: none;
+        a {
+            color: $primary-color;
+            text-decoration: none;
 
-                        &:hover {
-                            text-decoration: underline;
-                        }
-                    }
-                }
+            &:hover {
+                text-decoration: underline;
             }
+        }
+    }
+
+    .signup-prompt {
+        margin-top: 20px;
+        font-size: 14px;
+        color: $text-color;
+
+        a {
+            color: $primary-color;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
         }
     }
 }

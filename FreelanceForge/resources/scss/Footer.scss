@@ -2,32 +2,40 @@
     background-color: #f8f8f8; 
     padding: 20px 0;
     text-align: center;
-  
-    div {
-      margin: 10px 0;
-  
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-  
-        li {
-          a {
-            color: #333; 
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            
-            &:hover {
-              color: #0073e6;  
-              text-decoration: underline;
+    
+
+    .footer-links { // Added class for links section
+        margin: 10px 0;
+
+        ul.footer-list { // Class for footer list
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+
+            li.footer-item { // Class for each list item
+                a.footer-link { // Class for links
+                    color: #333; 
+                    text-decoration: none;
+                    font-weight: 500;
+                    font-size: 1rem;
+
+                    &:hover {
+                        color: #0073e6;  
+                        text-decoration: underline;
+                    }
+                }
             }
-          }
         }
-      }
     }
-  }
-  
+
+    .footer-extra { // Optional extra content
+        margin: 10px 0;
+    }
+
+    .footer-credits { // Optional credits section   
+        margin: 10px 0;
+    }
+}

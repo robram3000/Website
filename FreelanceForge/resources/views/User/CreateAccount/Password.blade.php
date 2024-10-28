@@ -1,3 +1,4 @@
+@include('User.Layout.Footer')
 
 <main>
     <div>
@@ -22,3 +23,5 @@
          </div>
     </div>
 </main>
+
+@include('User.Layout.Footer')

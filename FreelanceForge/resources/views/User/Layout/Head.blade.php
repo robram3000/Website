@@ -12,6 +12,8 @@
            'resources/scss/CreateAccount/Roletype.scss',
            'resources/scss/GetInTouch.scss',
            'resources/scss/Footer.scss'])
+
+    <script src="{{ url('Javascript/Roletype.js')}}"></script>
     <title>{{ $title }}</title>
     <link rel="icon" href="{{ URL('images/FreelanceFrogeicons.png') }}" type="image/x-icon">
 

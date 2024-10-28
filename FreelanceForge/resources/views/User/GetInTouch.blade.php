@@ -58,3 +58,5 @@
         </div>
     </section>
 </main>
+@include('User.Layout.Footer')
+

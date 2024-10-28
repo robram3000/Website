@@ -43,3 +43,5 @@
             </div>
         </form>         
     </main>
+
+    @include('User.Layout.Footer')

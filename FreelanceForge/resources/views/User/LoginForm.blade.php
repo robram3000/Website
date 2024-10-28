@@ -1,8 +1,18 @@
 @include('User.Layout.Navigator')
+
 <main class="login-container">
+    <!-- Left side: Image box with overlay text -->
+   
+    <div class="login-image-box">
+        <div class="image-content">
+            {{-- <img src="{{ URL('images/Bg-Login.png') }}" alt="Overlay Image"> --}}
+            <p>Welcome to Our Service</p>
+        </div>
+    </div>
+    <!-- Right side: Login form -->
     <form action="" method="POST" class="login-form">
         <div class="login-form-logo">
-            <img src="" alt="Logo">
+            {{-- <img src="{{ URL('images/FreelanceFrogeicons.png') }}" alt="Logo"> --}}
         </div>
         <div class="login-form-inputs">
             <div class="login-form-input-group">
@@ -25,8 +35,13 @@
             </div>
             <div class="login-form-actions">
                 <button type="submit" class="login-button">Login</button>
-                <p class="signup-prompt">Don’t have an account? <a href="{{url('/Role')}}">Sign up</a></p>
+                <hr class="divider">
+                <p class="forgot-password"><a href="#">Forgot Password?</a></p>
+                <p class="signup-prompt">Don’t have an account? <a href="{{ url('/Role') }}">Sign up</a></p>
             </div>
         </div>
     </form>
 </main>
+
+
+@include('User.Layout.Footer')

@@ -82,3 +82,5 @@
 
     </div>
 </section>
+
+@include('User.Layout.Footer')

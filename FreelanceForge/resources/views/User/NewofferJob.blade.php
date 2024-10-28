@@ -4,3 +4,4 @@
 
     </section>
 </main>
+@include('User.Layout.Footer')
