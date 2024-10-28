@@ -18,11 +18,13 @@ $fonts: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     -webkit-backdrop-filter: blur(10px); 
 
     .navigation-logo {
+
         h4 {
             margin: 0;
             font-size: 2em;
             color: $nav-color-font;
         }
+
     }
 
     .navigation-control-page {

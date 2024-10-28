@@ -42,7 +42,7 @@ class PagesController extends Controller
     public function registerForm()
     {
         $title = "Freelance Forge - Register Account";
-        return view('User.RegisterForm', compact('title'));
+        return view('User.CreateAccount.RegisterForm', compact('title'));
     }
 
     public function loginForm()
@@ -53,6 +53,10 @@ class PagesController extends Controller
     public function role()
     {
         $title = "Choose Your Role";
-        return view('User.RoleType', compact('title'));
+        return view('User.CreateAccount.RoleType', compact('title'));
+    }
+    public function getInTouch() {
+        $title = "Get In Touch";
+        return view('User.GetInTouch', compact('title'));
     }
 }

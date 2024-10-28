@@ -1,0 +1,33 @@
+.footer {
+    background-color: #f8f8f8; 
+    padding: 20px 0;
+    text-align: center;
+  
+    div {
+      margin: 10px 0;
+  
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+  
+        li {
+          a {
+            color: #333; 
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            
+            &:hover {
+              color: #0073e6;  
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+  

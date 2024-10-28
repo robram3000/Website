@@ -7,12 +7,15 @@ export default defineConfig({
             input: [
                 'resources/css/app.css', 
                 'resources/js/app.js',
-                'resources/scss/RegisterForm.scss',
+                'resources/js/Roletype.js',
+                'resources/scss/CreateAccount/RegisterForm.scss',
                 'resources/scss/Loginform.scss',
                 'resources/scss/Navigation.scss',
                 'resources/scss/Base.scss',
-                'resources/scss/Password.scss',
-                'resources/scss/Roletype.scss'
+                'resources/scss/CreateAccount/Password.scss',
+                'resources/scss/CreateAccount/Roletype.scss',
+                'resources/scss/GetInTouch.scss',
+                'resources/scss/Footer.scss'
             ],
             refresh: true,
         }),

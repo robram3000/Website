@@ -1,7 +1,5 @@
 @include('User.Layout.Navigator')
 
-<body>
-    <div class="overlay"></div> <!-- Overlay image container -->
     <main class="registration-main">    
         <form action="" method="POST" class="registration-form">
             <h2 class="form-title">Register Account</h2>
@@ -45,4 +43,3 @@
             </div>
         </form>         
     </main>
-</body>

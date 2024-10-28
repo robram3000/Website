@@ -15,14 +15,12 @@
                     <h5>{{ $mainSubtitle }}</h5>
                 </div>
                 <div>
-                    <a class="Getstarted" href="">Get Started</a>
+                    <a class="Getstarted" href="{{url('/GetInTouch')}}">Get Started</a>
                     <a class="Joinnow" href="">Join now</a>
                 </div>
             </div>
         </section>
     </div>
-    
-
     @foreach($contentSections as $section)
         <div class="Content-Third-section">
             <div class="Container-sec">   
@@ -35,9 +33,7 @@
             </div>
         </div>
     @endforeach
-
     <br><br>
-
     <section class="Othersub-Section">
         <div class="container-other-sec">
             <div class="header">
