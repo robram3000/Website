@@ -6,7 +6,6 @@
     <div class="login-image-box">
         <div class="image-content">
             <img src="{{ URL('images/Bg-Login.png') }}" alt="Overlay Image">
-            <p>Welcome to Our Service</p>
         </div>
     </div>
    
