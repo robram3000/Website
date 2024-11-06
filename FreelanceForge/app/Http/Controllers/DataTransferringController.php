@@ -20,9 +20,11 @@ class DataTransferringController
             'phone_number' => session('Phonenumber'),
         ];
         $accountDetail = AccountDetail::create($accountDetailData);
+
+
         $accountDetailAuthData = [
             'account_no' => $accountDetail->account_no,
-            'email' => $request->input('Email'),
+            'email' => $request->input('email'),
             'password' => bcrypt($request->input('Password')), 
             'role_type' => session('Roletype'), 
             'otp' => null, 

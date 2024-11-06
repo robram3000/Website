@@ -52,6 +52,9 @@ class PagesController
         $roles = ['Client', 'Freelancer'];
         return view('User.CreateAccount.RoleType', compact('title', 'roles', 'randomnumber'));
     }
+
+
+    
     
     public function registerForm($randomnumber)
     {

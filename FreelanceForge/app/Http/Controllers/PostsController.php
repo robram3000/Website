@@ -18,8 +18,11 @@ class PostsController  extends PagesController
     {
         $userType = $request->input('userType');
         session(['Roletype' => $userType]);
+       
         return redirect()->route('register.form', ['randomnumber' => $request->route('randomnumber')])->with('success', 'Account created successfully!');
+
     }
+    
     public function registerStoreData(Request $request)
     {
      
@@ -48,19 +51,20 @@ class PostsController  extends PagesController
     {
         $validatorIdentifyPassword = $this->validationController->ValidateIdentifyPassword($request);
         $validatorEmail = $this->validationController->ValidateEmail($request);
-    
+        
         if ($validatorIdentifyPassword->fails()) {
             return redirect()->back()->withErrors($validatorIdentifyPassword)->withInput();
         }
+        
         if ($validatorEmail->fails()) {
             return redirect()->back()->withErrors($validatorEmail)->withInput();
         }
+
         $dataTransferringController = new DataTransferringController();
         $dataTransferringController->storeAccountDetails($request);
     
         return redirect()->route('login');
     }
-    
     
     
     

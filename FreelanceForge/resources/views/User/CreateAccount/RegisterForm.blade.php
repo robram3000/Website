@@ -20,7 +20,7 @@
             <div class="inline-container">
                 <div class="label-input-group">
                     <label for="age">Age</label>
-                    <input type="text" name="Age" id="age" placeholder="Age" required>
+                    <input type="Number" name="Age" id="age" placeholder="Age" required>
                 </div>
                 <div class="label-input-group">
                     <label for="birthday">Birthday</label>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="label-input-group">
                     <label for="phonenumber">Phonenumber</label>
-                    <input type="text" name="Phonenumber" id="phonenumber" placeholder="Phonenumber">
+                    <input type="text" name="Phonenumber" id="phonenumber" placeholder="Phonenumber" required>
                 </div>
             </div>
 

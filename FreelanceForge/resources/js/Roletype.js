@@ -9,3 +9,6 @@ function selectOption(option) {
 
     document.getElementById('createAccountBtn').disabled = false; 
 }
+
+
+

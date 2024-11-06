@@ -11,6 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('AccounDetailAuth', function (Blueprint $table) {
+            $table->id(); // Primary key
+            $table->string('account_no')->unique();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('role_type');
+            $table->string('otp')->nullable(); // Optional One-Time Password (OTP) field
+            $table->timestamps(); // Adds created_at and updated_at columns
+        });
         Schema::create('AccountDetails', function (Blueprint $table) {
             $table->id(); // Primary key
             $table->string('account_no')->unique();
@@ -20,19 +29,9 @@ return new class extends Migration
             $table->string('address');
             $table->string('phone_number');
             $table->date('birthday');
-            $table->timestamps(); // Adds created_at and updated_at columns
+            $table->timestamps(); 
         });
 
-
-        Schema::create('AccounDetailAuth', function (Blueprint $table) {
-            $table->id(); // Primary key
-            $table->string('account_no')->unique();
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('role_type');
-            $table->string('otp')->nullable(); // Optional One-Time Password (OTP) field
-            $table->timestamps(); // Adds created_at and updated_at columns
-       });
     }
 
     /**
@@ -40,7 +39,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('AccountDetails');
         Schema::dropIfExists('AccountDetailsAuth');
+        Schema::dropIfExists('AccountDetails');
     }
 };

@@ -21,17 +21,16 @@ class ValidationController extends PagesController
 
     public function ValidateIdentifyPassword(Request $request)
     {
-        // Define validation rules and custom messages
         $validator = Validator::make($request->all(), [
             'Password' => [
                 'required',
                 'string',
-                'min:8',            // Minimum of 8 characters
-                'regex:/[A-Z]/',    // At least one uppercase letter
-                'regex:/[a-z]/',    // At least one lowercase letter
-                'regex:/[0-9]/',    // At least one digit
+                'min:8',          
+                'regex:/[A-Z]/',  
+                'regex:/[a-z]/',    
+                'regex:/[0-9]/',    
             ],
-            'ConfirmPassword' => 'required|same:Password', // Must match Password field
+            'ConfirmPassword' => 'required|same:Password',
         ], [
             'Password.required' => 'Password is required.',
             'Password.min' => 'Password must be at least 8 characters long.',
@@ -66,8 +65,6 @@ class ValidationController extends PagesController
         if ($validator->fails()) {
             return $validator; 
         }
-
-        // Validation passed
         return $validator;
     }
 
