@@ -36,3 +36,16 @@
     Route::get('/TermsAndCondition', [PagesController::class, 'Termsandcondition'])->name('termandcondition');
     Route::get('/ContactUs', [PagesController::class, 'ContactUs'])->name('ContactUs');
     Route::get('/FAQS', [PagesController::class, 'FAQS'])->name('FAQS');
+
+
+
+
+
+    //forgot routing
+    Route::get('/Sending-Email/{randomnumber}', [PagesController::class, 'SendEmail'])->name('Send.Email');
+    Route::post('/Email-Data/{randomnumber}', [PostsController::class, 'EmailSendingOtp'])->name('Emailsending.Otp');
+    Route::get('/Otp-Verfication/{randomnumber}', [PostsController::class, 'OtpVerification'])->name('Otp.Verification');
+
+
+    Route::get('/TermsAndCondition', [PagesController::class, 'Termsandcondition'])->name('termandcondition');
+   

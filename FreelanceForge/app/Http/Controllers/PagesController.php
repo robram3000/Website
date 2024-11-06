@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class PagesController
 {
+    public function generateRandomString($length = 100)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=[]{}|;:,.<>?';
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[random_int(0, strlen($characters) - 1)];
+        }
+        return $randomString;
+    }  
     public function Base() {
         $title = "Freelance Forge";   
         $contentSections = [
@@ -53,9 +62,6 @@ class PagesController
         return view('User.CreateAccount.RoleType', compact('title', 'roles', 'randomnumber'));
     }
 
-
-    
-    
     public function registerForm($randomnumber)
     {
         $title = "Freelance Forge - Register Account";
@@ -68,21 +74,28 @@ class PagesController
         return view('User.CreateAccount.Password' , compact('title',"randomnumber")); 
 
     }
-    
+
+
     public function getInTouch() {
         $title = "Get In Touch";
         return view('User.GetInTouch', compact('title'));
     }
 
+
+    public function SendEmail() {
+        $randomnumber = $this->generateRandomString();
+        $title = "Freelance Forge - Send Email";
+        return view('User.Forgotpassword.SendingEmail', compact('title', 'randomnumber'));
+
+    }
+    public function OtpVerification() {
+        $title = "Freelance Forge - Enter Otp";
+        return view('User.Forgotpassword.OnlytimePassword', compact('title', 'randomnumber'));
+
+    }
+
     
-    public function generateRandomString($length = 100)
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=[]{}|;:,.<>?';
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[random_int(0, strlen($characters) - 1)];
-        }
-        return $randomString;
-    }  
+    
+    
     
 }

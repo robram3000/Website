@@ -1,3 +1,4 @@
+@include('User.Layout.Navigator')
 <main>
     <div>
         <div>
@@ -10,18 +11,21 @@
                 <p>Enter your email address and we will send you the recovery link?</p>
             </div>
         </div>
-        <form action="">
+        <form action="{{ route('Emailsending.Otp', ['randomnumber' => $randomnumber]) }}" method="Post">
             <div>
                 <input 
                 type="text"
-                placeholder="Email"
+                placeholder="Enter your email"
                 name ="Email"
                 required
                 >
             </div>
             <div>
-                <button></button>
+                <button type="submit">Submit</button>
             </div>
         </form>
     </div>
 </main>
+
+
+@include('User.Layout.Footer')

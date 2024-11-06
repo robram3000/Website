@@ -33,7 +33,7 @@
             <div class="login-form-actions">
                 <button type="submit" class="login-button">Login</button>
                 <hr class="divider">
-                <p class="forgot-password"><a href="#">Forgot Password?</a></p>
+                <p class="forgot-password"><a href="{{ url('/Sending-Email/' . $randomnumber) }}">Forgot Password?</a></p>
                 <p class="signup-prompt">Don’t have an account? <a href="{{ url('/Role/' . $randomnumber) }}">Sign up</a></p>
 
 

@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\UpdateController;
 
 class PostsController  extends PagesController
 {
     protected $validationController;
+    protected $updateController;
 
-    public function __construct(ValidationController $validationController)
+    public function __construct(ValidationController $validationController , UpdateController $updateController)
     {
         $this->validationController = $validationController;
+        $this->updateController = $updateController;
+
     }
 
 
@@ -66,6 +70,15 @@ class PostsController  extends PagesController
         return redirect()->route('login');
     }
     
+
+
+
+    public function Emaildata(Request $request)
+    {
+        $email = $request->input('Email');
+        $this->updateController->UpdateOtp($request);
+        return redirect()->route('otp.success'); 
+    }
     
     
 }
