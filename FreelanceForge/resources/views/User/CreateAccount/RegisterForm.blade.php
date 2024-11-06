@@ -1,7 +1,8 @@
 @include('User.Layout.Navigator')
 
     <main class="registration-main">    
-        <form action="" method="POST" class="registration-form">
+        <form action="{{ route('registerStore.Data', ['randomnumber' => $randomnumber]) }}" method="POST" class="registration-form">
+            @csrf
             <h2 class="form-title">Register Account</h2>
             <h4 class="form-subtitle">Details /</h4>
             

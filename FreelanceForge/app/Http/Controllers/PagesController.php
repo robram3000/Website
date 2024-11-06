@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PagesController extends Controller
+
+class PagesController
 {
     public function Base() {
         $title = "Freelance Forge";   
@@ -39,24 +40,46 @@ class PagesController extends Controller
     }
     
 
-    public function registerForm()
-    {
-        $title = "Freelance Forge - Register Account";
-        return view('User.CreateAccount.RegisterForm', compact('title'));
-    }
-
     public function loginForm()
     {
+        $randomnumber = $this->generateRandomString();
         $title = "Freelance Forge - Login";
-        return view('User.LoginForm', compact('title'));
+        return view('User.LoginForm', compact('title',"randomnumber"));
     }
-    public function role()
+    public function role($randomnumber)
     {
         $title = "Choose Your Role";
-        return view('User.CreateAccount.RoleType', compact('title'));
+        $roles = ['Client', 'Freelancer'];
+        return view('User.CreateAccount.RoleType', compact('title', 'roles', 'randomnumber'));
     }
+    
+    public function registerForm($randomnumber)
+    {
+        $title = "Freelance Forge - Register Account";
+        return view('User.CreateAccount.RegisterForm', compact('title', 'randomnumber'));
+    }
+
+    public function PasswordForm($randomnumber)
+    {
+        $title = "Freelance Forge - Create a Password";
+        return view('User.CreateAccount.Password' , compact('title',"randomnumber")); 
+
+    }
+    
     public function getInTouch() {
         $title = "Get In Touch";
         return view('User.GetInTouch', compact('title'));
     }
+
+    
+    public function generateRandomString($length = 100)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=[]{}|;:,.<>?';
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[random_int(0, strlen($characters) - 1)];
+        }
+        return $randomString;
+    }  
+    
 }

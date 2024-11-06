@@ -1,27 +1,40 @@
-@include('User.Layout.Footer')
+@include('User.Layout.Navigator')
 
 <main>
-    <div>
+    <form method="POST" action="/PasswordData{{ $randomnumber }}" class="registration-form">
+        @csrf
+
         <div>
-                <label for="">Password</label>
-                <input 
-                        type="text"
-                        placeholder="Password"
-                        required
-                        name="Password"
-                        >
+            <label for="">Email</label>
+            <input 
+                type="text"
+                placeholder="Email"
+                required
+                name="Email"   
+                >
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input 
+                type="password"
+                placeholder="Password"
+                required
+                name="Password"
+            >
         </div>  
         <div>
-            <label for="">Confirm Password</label>
+            <label for="confirm_password">Confirm Password</label>
             <input 
-                    type="text"
-                    placeholder="Confirm Password"
-                    required
-                    name="ConfirmPassword"
-                    >
-
-         </div>
-    </div>
+                type="password"
+                placeholder="Confirm Password"
+                required
+                name="ConfirmPassword"
+            >
+        </div>
+        <button type="submit">
+            Submit
+        </button>
+    </form>
 </main>
 
 @include('User.Layout.Footer')

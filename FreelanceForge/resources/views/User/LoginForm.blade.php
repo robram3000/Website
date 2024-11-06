@@ -1,8 +1,6 @@
 @include('User.Layout.Navigator')
 
 <main class="login-container">
-
-   
     <div class="login-image-box">
         <div class="image-content">
             <img src="{{ URL('images/Bg-Login.png') }}" alt="Overlay Image">
@@ -11,7 +9,7 @@
    
     <form action="" method="POST" class="login-form">
         <div class="login-form-logo">
-            <img src="{{ URL('images/FreelanceFrogeicons.png') }}" alt="Logo">
+            {{-- <img src="{{ URL('images/FreelanceFrogeicons.png') }}" alt="Logo"> --}}
         </div>
         <div class="login-form-inputs">
             <div class="login-form-input-group">
@@ -36,7 +34,9 @@
                 <button type="submit" class="login-button">Login</button>
                 <hr class="divider">
                 <p class="forgot-password"><a href="#">Forgot Password?</a></p>
-                <p class="signup-prompt">Don’t have an account? <a href="{{ url('/Role') }}">Sign up</a></p>
+                <p class="signup-prompt">Don’t have an account? <a href="{{ url('/Role/' . $randomnumber) }}">Sign up</a></p>
+
+
             </div>
         </div>
     </form>

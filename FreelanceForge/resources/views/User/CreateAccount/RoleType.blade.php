@@ -4,7 +4,8 @@
     <header class="registration-header">
         <h2>Join as a Client or Freelancer</h2>
     </header>
-    <form method="PT" action="" class="registration-form">
+    <form method="POST" action="/Roletypedata/{{ $randomnumber }}" class="registration-form">
+        @csrf
         <div class="user-option client-option" onclick="selectOption('Client')">
             <input type="radio" name="userType" value="Client" id="clientOption" />
             <label for="clientOption">
