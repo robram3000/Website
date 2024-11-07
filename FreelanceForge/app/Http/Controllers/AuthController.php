@@ -21,15 +21,15 @@ class AuthController
     }
 
 
-    public function OneTimePassword($otp , $randomnumber)
-    {
-        $otp = AccountDetailAuth::where('otp', $otp)->first();
+    // public function OneTimePassword($otp , $randomnumber)
+    // {
+    //     $otp = AccountDetailAuth::where('otp', $otp)->first();
         
-        if (!$otp) {
-            return redirect()->back()->withErrors(['email' => 'Email not found in the database.']);
-        }
-        return (new UpdateController)->updateOtp($email, $otp);
-    }
+    //     if (!$otp) {
+    //         return redirect()->back()->withErrors(['email' => 'Email not found in the database.']);
+    //     }
+    //     return (new UpdateController)->updateOtp($email, $otp);
+    // }
 
 
 }

@@ -31,11 +31,11 @@
     Route::get('/login', [PagesController::class, 'loginForm'])->name('login');
 
     // Footer
-    Route::get('/GetInTouch', [PagesController::class, 'getInTouch'])->name('GetInTouch');
-    Route::get('/AboutUs', [PagesController::class, 'Aboutus'])->name('AboutUs');
-    Route::get('/TermsAndCondition', [PagesController::class, 'Termsandcondition'])->name('termandcondition');
-    Route::get('/ContactUs', [PagesController::class, 'ContactUs'])->name('ContactUs');
-    Route::get('/FAQS', [PagesController::class, 'FAQS'])->name('FAQS');
+Route::get('/GetInTouch', [PagesController::class, 'getInTouch'])->name('GetInTouch');
+Route::get('/AboutUs', [PagesController::class, 'Aboutus'])->name('AboutUs');
+Route::get('/TermsAndCondition', [PagesController::class, 'Termsandcondition'])->name('termandcondition');
+Route::get('/ContactUs', [PagesController::class, 'ContactUs'])->name('ContactUs');
+Route::get('/FAQS', [PagesController::class, 'FAQS'])->name('FAQS');
 
 
 
@@ -49,4 +49,12 @@ Route::get('/Otp-Verfication/{randomnumber}', [PostsController::class, 'OtpVerif
 Route::post('/VerifyUserOtp/{randomnumber}', [PostsController::class, 'EmailSendingOtp'])->name('Emailsending.Otp');
 
     Route::get('/TermsAndCondition', [PagesController::class, 'Termsandcondition'])->name('termandcondition');
-   
+
+
+
+/*
+    This is for Client Routing 
+    Post, Get , Update 
+
+*/
+
