@@ -28,6 +28,7 @@ class DataTransferringController
             'password' => bcrypt($request->input('Password')), 
             'role_type' => session('Roletype'), 
             'otp' => null, 
+            
         ];
 
  

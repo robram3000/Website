@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('AccounDetailAuth', function (Blueprint $table) {
+        Schema::create('AccountDetailAuth', function (Blueprint $table) {
             $table->id(); // Primary key
             $table->string('account_no')->unique();
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role_type');
             $table->string('otp')->nullable(); // Optional One-Time Password (OTP) field
+            $table->timestamp('otp_expires_at')->nullable(); // OTP expiration time
             $table->timestamps(); // Adds created_at and updated_at columns
         });
         Schema::create('AccountDetails', function (Blueprint $table) {
@@ -31,7 +32,6 @@ return new class extends Migration
             $table->date('birthday');
             $table->timestamps(); 
         });
-
     }
 
     /**

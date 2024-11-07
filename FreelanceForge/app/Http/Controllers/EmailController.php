@@ -5,21 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OtpMail;
-use App\Models\User; // Assuming you have a User model
 
 
 class EmailController
 {
-    public function sendOtp(Request $request)
+    public function sendOtp($email, $otp)
     {
-        $otp = rand(100000, 999999);
-        $user = User::where('email', $request->email)->first();
-        $user->otp = $otp;
-        $user->otp_expires_at = now()->addMinutes(10); 
-        $user->save();
+        // Send OTP email using OtpMail mailable
+        Mail::to($email)->send(new OtpMail(['otp' => $otp]));
+        
+        // Check if email sending was successful
+        if (Mail::failures()) {
+            return back()->withErrors(['email' => 'Failed to send OTP.']);
+        }
 
-        Mail::to($user->email)->send(new OtpMail($otp));
-
-        return response()->json(['message' => 'OTP sent to your email.']);
+        return back()->with('success', 'OTP sent successfully!');
     }
+
 }

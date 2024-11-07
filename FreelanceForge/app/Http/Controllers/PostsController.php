@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\Http\Controllers\UpdateController;
+use Illuminate\Http\Request;  // Make sure to import Mail facade
+
 
 class PostsController  extends PagesController
 {
@@ -70,18 +72,20 @@ class PostsController  extends PagesController
         return redirect()->route('login');
     }
     
-
-
-
-    public function EmailSendingOtp(Request $request)
+    public function emailSendingOtp(Request $request)
     {
-        $request->validate([
-            'Email' => 'required|email|exists:AccounDetailAuth,email',
-        ]);
-    
-        $this->updateController->UpdateOtp($request); 
-        return redirect()->route('Otp.Verification', ['randomnumber' => $request->route('randomnumber')]); 
+        $email = $request->input('email');
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return back()->withErrors(['email' => 'Invalid email format.']);
+        }
+
+        $otp = rand(10000, 99999);
+
+        return (new UpdateController)->updateOtp($email, $otp);
     }
+  
+    
     
     
 }

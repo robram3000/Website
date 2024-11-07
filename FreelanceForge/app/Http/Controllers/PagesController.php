@@ -90,9 +90,9 @@ class PagesController
     }
     public function OtpVerification() {
         $title = "Freelance Forge - Enter Otp";
-        return view('User.Forgotpassword.OnlytimePassword', compact('title', 'randomnumber'));
-
+        return view('User.Forgotpassword.OnlytimePassword', compact('title'));
     }
+    
     // public function EmailSendingOtp(){
     //     $title = "Freelance Forge - Send Email";
     //     return view('User.Forgotpassword.SendingEmail', compact('title', 'randomnumber'));

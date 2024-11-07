@@ -10,7 +10,7 @@
                 <p>Enter the OTP sent to your registered email to reset your password.</p>
             </div>
         </div>
-        <form action="" method="post">
+        <form action="{{ route('Otp.Verification', ['randomnumber' => $randomnumber]) }}" method="post">
             <div>
                 <input 
                 type="text"

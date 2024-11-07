@@ -10,7 +10,7 @@ class AccountDetailAuth extends Model
     use HasFactory;
 
     
-    protected $table = 'AccounDetailAuth'; 
+    protected $table = 'AccountDetailAuth'; 
 
     protected $fillable = [
         'account_no',
@@ -18,5 +18,6 @@ class AccountDetailAuth extends Model
         'password',
         'role_type',
         'otp',
+        'otp_expires_at'
     ];
 }
