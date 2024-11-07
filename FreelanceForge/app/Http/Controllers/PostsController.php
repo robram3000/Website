@@ -71,17 +71,14 @@ class PostsController  extends PagesController
     
         return redirect()->route('login');
     }
-    
     public function emailSendingOtp(Request $request)
     {
+        
         $email = $request->input('email');
-
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return back()->withErrors(['email' => 'Invalid email format.']);
         }
-
         $otp = rand(10000, 99999);
-
         return (new UpdateController)->updateOtp($email, $otp);
     }
   
