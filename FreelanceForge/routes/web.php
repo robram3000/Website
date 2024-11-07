@@ -44,9 +44,9 @@
     //forgot routing
  // These are the correct route definitions
 Route::get('/Sending-Email/{randomnumber}', [PagesController::class, 'SendEmail'])->name('Send.Email');
-Route::post('/Email-Data', [PostsController::class, 'EmailSendingOtp'])->name('Emailsending.Otp');
-Route::get('/Otp-Verfication', [PostsController::class, 'OtpVerification'])->name('Otp.Verification');
-
+Route::post('/Email-Data/{randomnumber}', [PostsController::class, 'EmailSendingOtp'])->name('Emailsending.Otp');
+Route::get('/Otp-Verfication/{randomnumber}', [PostsController::class, 'OtpVerification'])->name('Otp.Verification');
+Route::post('/VerifyUserOtp/{randomnumber}', [PostsController::class, 'EmailSendingOtp'])->name('Emailsending.Otp');
 
     Route::get('/TermsAndCondition', [PagesController::class, 'Termsandcondition'])->name('termandcondition');
    

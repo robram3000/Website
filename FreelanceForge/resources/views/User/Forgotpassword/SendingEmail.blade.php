@@ -25,8 +25,8 @@
                 {{ session('error') }}
             </div>
         @endif
-
-        <form action="{{ route('Emailsending.Otp') }}" method="POST">
+       
+        <form action=" {{ route('Emailsending.Otp', ['randomnumber' => $randomnumber]) }}" method="POST">
             @csrf <!-- CSRF Token -->
 
             <div>
@@ -53,5 +53,4 @@
 
     </div>
 </main>
-
 @include('User.Layout.Footer')

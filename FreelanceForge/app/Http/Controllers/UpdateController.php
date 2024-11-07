@@ -9,7 +9,7 @@ use App\Models\AccountDetailAuth;
 
 class UpdateController 
 { 
-    public function updateOtp($email, $otp)
+    public function updateOtp($email, $otp , $randomNumber)
     {
        
         $user = AccountDetailAuth::where('email', $email)->first();
@@ -20,7 +20,22 @@ class UpdateController
         
         $user->update(['otp' => $otp]);
         
-        return (new EmailController)->sendOtp($email, $otp);
+        return (new EmailController)->sendOtp($email, $otp , $randomNumber);
+    }
+
+    public function UpdateOtpToNull($otp , $randomnumber ){
+        
+        $user = AccountDetailAuth::where('otp' , $otp)->first();
+        if(!$user)
+        {
+            return back()->withErrors(['otp' => 'otp not match']);
+        }        
+
+        $user->update(['otp' => null,
+                        'otp_expires_at' => null]);
+
+        return redirect()->route('Change.password' , $randomnumber);
+
     }
   
 

@@ -88,9 +88,9 @@ class PagesController
         return view('User.Forgotpassword.SendingEmail', compact('title', 'randomnumber'));
 
     }
-    public function OtpVerification() {
+    public function OtpVerification($randomNumber) {
         $title = "Freelance Forge - Enter Otp";
-        return view('User.Forgotpassword.OnlytimePassword', compact('title'));
+        return view('User.Forgotpassword.OnlytimePassword', compact('title', 'randomNumber'));
     }
     
    

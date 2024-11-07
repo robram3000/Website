@@ -1,3 +1,5 @@
+@include('User.Layout.Navigator')
+
 <main>
     <div>
         <div>
@@ -10,28 +12,34 @@
                 <p>Enter the OTP sent to your registered email to reset your password.</p>
             </div>
         </div>
-        <form action="{{ route('Otp.Verification', ['randomnumber' => $randomnumber]) }}" method="post">
+        <form action="{{ route('Otp.Verification', ['randomnumber' => $randomNumber]) }}" method="post">
+            @csrf
             <div>
                 <input 
                 type="text"
                 name ="Firstno"
-                required
+                 maxlength="1"
                 >
                 <input 
                 type="text"
                 name ="Secondno"
-                required
+                 maxlength="1"
                 >
                 <input 
                 type="text"
                 name ="Thirdno"
-                required
+                 maxlength="1"
                 >
                 <input 
                 type="text"
-
                 name ="Fourthno"
-                required
+                 maxlength="1"
+                >
+                <input type="text"
+                type="text"
+                name = "Fifthno"
+                maxlength="1"
+                   
                 >
             </div>
             <div>
@@ -40,3 +48,5 @@
         </form>
     </div>
 </main>
+
+@include('User.Layout.Footer')

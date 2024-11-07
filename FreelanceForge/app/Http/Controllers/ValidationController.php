@@ -69,9 +69,9 @@ class ValidationController extends PagesController
     }
 
 
-    public function ValidateChangePassword(Request $request){
-        $validator = Validator::make($request)
+    // public function ValidateChangePassword(Request $request){
+    //     $validator = Validator::make($request);
 
-    }
+    // }
 
 }

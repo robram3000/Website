@@ -71,7 +71,7 @@ class PostsController  extends PagesController
     
         return redirect()->route('login');
     }
-    public function emailSendingOtp(Request $request)
+    public function emailSendingOtp(Request $request , $randomnumber)
     {
         
         $email = $request->input('email');
@@ -79,10 +79,21 @@ class PostsController  extends PagesController
             return back()->withErrors(['email' => 'Invalid email format.']);
         }
         $otp = rand(10000, 99999);
-        return (new UpdateController)->updateOtp($email, $otp);
+        return (new UpdateController)->updateOtp($email, $otp , $randomnumber);
     }
   
     
-    
+    public function OneTimePassword(Request $request , $randomnumber)
+    {
+        $otpData = collect([
+            "Data1" => $request->input('Firstno'),
+            "Data2" => $request->input('Secondno'),
+            "Data3" => $request->input('Thirdno'),
+            "Data4" => $request->input('Fourthno'),
+            "Data5" => $request->input('Fifthno') ]);
+
+        return (new AuthController)->OneTimePassword($otpData , $randomnumber);
+
+    }
     
 }
