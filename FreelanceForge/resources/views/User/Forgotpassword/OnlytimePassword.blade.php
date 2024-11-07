@@ -10,7 +10,7 @@
                 <p>Enter the OTP sent to your registered email to reset your password.</p>
             </div>
         </div>
-        <form action="">
+        <form action="" method="post">
             <div>
                 <input 
                 type="text"

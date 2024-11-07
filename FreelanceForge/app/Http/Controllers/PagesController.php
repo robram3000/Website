@@ -93,6 +93,11 @@ class PagesController
         return view('User.Forgotpassword.OnlytimePassword', compact('title', 'randomnumber'));
 
     }
+    // public function EmailSendingOtp(){
+    //     $title = "Freelance Forge - Send Email";
+    //     return view('User.Forgotpassword.SendingEmail', compact('title', 'randomnumber'));
+
+    // }
 
     
     

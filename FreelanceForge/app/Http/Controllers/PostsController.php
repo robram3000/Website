@@ -73,11 +73,14 @@ class PostsController  extends PagesController
 
 
 
-    public function Emaildata(Request $request)
+    public function EmailSendingOtp(Request $request)
     {
-        $email = $request->input('Email');
-        $this->updateController->UpdateOtp($request);
-        return redirect()->route('otp.success'); 
+        $request->validate([
+            'Email' => 'required|email|exists:AccounDetailAuth,email',
+        ]);
+    
+        $this->updateController->UpdateOtp($request); 
+        return redirect()->route('Otp.Verification', ['randomnumber' => $request->route('randomnumber')]); 
     }
     
     
