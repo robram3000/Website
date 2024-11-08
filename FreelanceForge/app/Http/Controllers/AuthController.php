@@ -52,23 +52,17 @@ class AuthController
         - If OTP matches, redirects to UpdateController to nullify OTP.
         - If OTP doesn’t match, redirects back with an error message.
     */
-    public function OneTimePassword(array $otpData, $randomnumber)
+    public function verifyOneTimePassword($otp, $randomnumber)
     {
-        // Search for an OTP record in the database matching all 5 OTP parts
-        $otpRecord = AccountDetailAuth::where([
-            ['otp_part1', '=', $otpData[0]],
-            ['otp_part2', '=', $otpData[1]],
-            ['otp_part3', '=', $otpData[2]],
-            ['otp_part4', '=', $otpData[3]],
-            ['otp_part5', '=', $otpData[4]]
-        ])->first();
+        // Search for an OTP record that exactly matches the provided OTP
+        $otpRecord = AccountDetailAuth::where('otp', $otp)->first();
     
         // If no matching OTP record is found, return an error
         if (!$otpRecord) {
             return redirect()->back()->withErrors(['otp' => 'OTP does not match our records.']);
         }
     
-        // If OTP is valid, proceed to update and nullify OTP in the database
-        return (new UpdateController)->UpdateOtpToNull($otpData, $randomnumber);
+        // OTP is valid, proceed to nullify the OTP
+        return (new UpdateController)->nullifyOtp($otpRecord, $randomnumber);
     }
 }

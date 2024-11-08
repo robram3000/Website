@@ -12,7 +12,7 @@
                 <p>Enter the OTP sent to your registered email to reset your password.</p>
             </div>
         </div>
-        <form action="{{ route('Otp.Verification', ['randomnumber' => $randomNumber]) }}" method="post">
+        <form action="{{ route('OneTime.Password', ['randomnumber' => $randomNumber]) }}" method="post">
             @csrf
             <div>
                 <input 

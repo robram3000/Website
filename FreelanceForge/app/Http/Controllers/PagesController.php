@@ -175,4 +175,18 @@ class PagesController
         $title = "Freelance Forge - Enter Otp";
         return view('User.Forgotpassword.OnlytimePassword', compact('title', 'randomNumber'));
     }
+
+    /**
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     */
+    public function ChangePassword($randomNumber)
+    {
+        $title = "Freelance Forge - Enter new password";
+        return view('User.Forgotpassword.ChangePassword', compact('title', 'randomNumber'));
+    }
 }

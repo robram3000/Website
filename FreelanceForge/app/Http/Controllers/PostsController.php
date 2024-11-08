@@ -114,17 +114,19 @@ class PostsController extends PagesController
     {
         // Retrieve email input and validate format
         $email = $request->input('email');
+        
+
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return back()->withErrors(['email' => 'Invalid email format.']);
         }
-
+    
         // Generate a 5-digit OTP
         $otp = rand(10000, 99999);
-
+    
         // Update OTP using UpdateController
         return (new UpdateController)->updateOtp($email, $otp, $randomnumber);
     }
-
+    
     /**
      * Handles OTP verification by collecting individual digits and passing them to AuthController.
      * 
@@ -134,16 +136,50 @@ class PostsController extends PagesController
      */
     public function OneTimePassword(Request $request, $randomnumber)
     {
-        // Collect individual OTP digits from request
-        $otpData = [
+        // Collect individual OTP digits from the request and combine into a single string
+        $otp = implode('', [
             $request->input('Firstno'),
             $request->input('Secondno'),
             $request->input('Thirdno'),
             $request->input('Fourthno'),
             $request->input('Fifthno')
-        ];
-
-        // Pass the OTP data to AuthController for verification
-        return (new AuthController)->OneTimePassword($otpData, $randomnumber);
+        ]);
+    
+        // Pass the concatenated OTP to AuthController for verification
+        return (new AuthController)->verifyOneTimePassword($otp, $randomnumber);
     }
+
+
+    /**
+     * Handles the request to change the user's password.
+     * 
+     * @param  Request  $request  The request containing the new password and confirmation password.
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function ChangePasswordData(Request $request)
+    {
+        $newPassword = $request->input('Newpassword');
+        $confirmPassword = $request->input('Confirmpassword');
+
+        // Validate passwords
+        $validationResult = app(ValidationController::class)->ValidatePasswordandConfirmPassword($newPassword, $confirmPassword);
+
+        if ($validationResult === true) {
+            // Password validation passed, proceed to update the password
+            $updateResult = app(UpdateController::class)->UpdateOldPassword($newPassword);
+
+            if ($updateResult === true) {
+                return redirect()->route('login')->with('status', 'Password updated successfully.');
+            } else {
+                // Redirect back with an update error
+                return redirect()->back()->withErrors(['error' => 'Failed to update password.']);
+            }
+        } else {
+            // Redirect back with validation errors and previous input
+            return redirect()->back()->withErrors($validationResult)->withInput();
+        }
+    }
+
+        
+     
 }

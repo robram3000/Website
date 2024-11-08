@@ -33,7 +33,7 @@ class EmailController
             Mail::to($email)->send(new OtpMail(['otp' => $otp]));
 
             // Redirect to the OTP verification route with the random number and email
-            return redirect()->route('Otp.Verification', ['randomnumber' => $randomNumber], $email);
+            return redirect()->route('Otp.Verification', ['randomnumber' => $randomNumber]);
 
         } catch (Exception $e) {
             // Redirect back with error message if email sending fails

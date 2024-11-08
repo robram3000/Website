@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\OtpMail; 
+
 use App\Models\AccountDetailAuth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 
 class UpdateController 
 { 
@@ -30,11 +31,12 @@ class UpdateController
     {
         // Check if user exists with the provided email
         $user = AccountDetailAuth::where('email', $email)->first();
-        
+       
         if (!$user) {
             // Redirect back if email is not found in the database
             return back()->withErrors(['email' => 'Email not found in the database.']);
         }
+        session(['email' => $email]);
         
         // Update the user's OTP in the database
         $user->update(['otp' => $otp]);
@@ -58,29 +60,44 @@ class UpdateController
         - Redirects back with an error message if OTP verification fails.
         - Redirects to 'Change.password' route if OTP is successfully nullified.
     */
-    public function UpdateOtpToNull(array $otpData, $randomnumber)
+    public function nullifyOtp($otpRecord, $randomnumber)
     {
-        // Look up the user based on the OTP parts
-        $user = AccountDetailAuth::where([
-            ['otp_part1', '=', $otpData[0]],
-            ['otp_part2', '=', $otpData[1]],
-            ['otp_part3', '=', $otpData[2]],
-            ['otp_part4', '=', $otpData[3]],
-            ['otp_part5', '=', $otpData[4]]
-        ])->first();
-    
-        if (!$user) {
-            // Redirect back if OTP does not match
-            return redirect()->back()->withErrors(['otp' => 'OTP does not match.']);
-        }
-
-        // Nullify the OTP and its expiration time in the database
-        $user->update([
+        // Update the OTP record to nullify OTP and its expiration time
+        $otpRecord->update([
             'otp' => null,
             'otp_expires_at' => null
         ]);
-
+    
         // Redirect to the password change route
-        return redirect()->route('Change.password', ['randomnumber' => $randomnumber]);
+        return redirect()->route('Change.Password', ['randomnumber' => $randomnumber]);
+    }
+
+
+
+    public function UpdateOldPassword($newPassword)
+    {
+        // Retrieve the email from the session
+        $email = session('email');  // or Session::get('email');
+        
+        // Check if the email exists in the session
+        if (!$email) {
+            return redirect()->back()->withErrors(['error' => 'Email not found in session.']);
+        }
+    
+        // Find the user by the email retrieved from the session
+        $user = AccountDetailAuth::where('email', $email)->first();
+        
+        // Check if the user exists
+        if (!$user) {
+            return redirect()->back()->withErrors(['error' => 'User not authenticated.']);
+        }
+    
+        // Update the user's password with a hashed version of the new password
+        $user->update([
+            'password' => Hash::make($newPassword),
+        ]);
+    
+        // Return true or any other desired outcome (e.g., redirect)
+        return true;  
     }
 }

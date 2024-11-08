@@ -105,4 +105,63 @@ class ValidationController extends PagesController
 
         return $validator; // Return successful validation if no errors
     }
+
+
+
+        /**
+         * Validates the new password and confirmation password.
+         * 
+         * This function checks that both the new password and confirmation password:
+         * - Are provided (not empty).
+         * - Meet the minimum length requirement (8 characters for the new password).
+         * - Match each other (confirmation password must be the same as the new password).
+         * 
+         * If validation passes, the function returns `true`.
+         * If validation fails, it redirects back with validation errors.
+         * 
+         * @param  string  $Newpassword  The new password provided by the user.
+         * @param  string  $Confirmpassword  The confirmation password provided by the user.
+         * @return bool|\Illuminate\Http\RedirectResponse  Returns `true` if validation passes, 
+         *                                                 or redirects back with errors if validation fails.
+         */
+        public function ValidatePasswordandConfirmPassword($Newpassword, $Confirmpassword)
+        {
+            // Create a validator instance with the provided passwords and rules
+            $validator = Validator::make(
+                [
+                    'Newpassword' => $Newpassword,
+                    'Confirmpassword' => $Confirmpassword
+                ],
+                [
+                    // Validation rule: the new password is required and must be at least 8 characters
+                    'Newpassword' => 'required|min:8',
+                    
+                    // Validation rule: the confirm password is required and must match the new password
+                    'Confirmpassword' => 'required|same:Newpassword'
+                ],
+                [
+                    // Custom error message if the new password is missing
+                    'Newpassword.required' => 'The new password is required.',
+                    
+                    // Custom error message if the new password does not meet the minimum length
+                    'Newpassword.min' => 'The new password must be at least 8 characters.',
+                    
+                    // Custom error message if the confirm password is missing
+                    'Confirmpassword.required' => 'The confirm password is required.',
+                    
+                    // Custom error message if the confirm password does not match the new password
+                    'Confirmpassword.same' => 'The confirm password must match the new password.'
+                ]
+            );
+
+            // Check if the validation fails
+            if ($validator->fails()) {
+                // Redirect back with validation errors and keep the input data
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+
+            // Return true if validation passes
+            return true; 
+        }
+
 }

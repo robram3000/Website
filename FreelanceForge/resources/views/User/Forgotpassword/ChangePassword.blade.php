@@ -1,3 +1,5 @@
+@include('User.Layout.Navigator')
+
 <main>
     <div>
         <div>
@@ -10,18 +12,19 @@
                 <p>Create a new password to secure your account.</p>
             </div>
         </div>
-        <form action="">
+        <form action="{{ route('ChangePassword.Verify', ['randomnumber' => $randomNumber]) }}" method="post">
+        @csrf
             <div>
                 <input 
                 type="text"
-                name ="Firstno"
+                name ="Newpassword"
                 placeholder="New Password"
                 required
                 >
                 <input 
                 type="text"
                 placeholder="Confirm Password"
-                name ="Secondno"
+                name ="Confirmpassword"
                 required
                 >
             </div>
@@ -31,3 +34,5 @@
         </form>
     </div>
 </main>
+
+@include('User.Layout.Footer')
