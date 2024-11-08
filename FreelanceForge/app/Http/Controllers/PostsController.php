@@ -83,17 +83,17 @@ class PostsController  extends PagesController
     }
   
     
-    // public function OneTimePassword(Request $request , $randomnumber)
-    // {
-    //     $otpData = collect([
-    //         "Data1" => $request->input('Firstno'),
-    //         "Data2" => $request->input('Secondno'),
-    //         "Data3" => $request->input('Thirdno'),
-    //         "Data4" => $request->input('Fourthno'),
-    //         "Data5" => $request->input('Fifthno') ]);
+    public function OneTimePassword(Request $request , $randomnumber , $email)
+    {
+        $otpData = collect([
+            "Data1" => $request->input('Firstno'),
+            "Data2" => $request->input('Secondno'),
+            "Data3" => $request->input('Thirdno'),
+            "Data4" => $request->input('Fourthno'),
+            "Data5" => $request->input('Fifthno') ]);
 
-    //     return (new AuthController)->OneTimePassword($otpData , $randomnumber);
+        return (new AuthController)->OneTimePassword($otpData , $randomnumber);
 
-    // }
+    }
     
 }

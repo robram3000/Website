@@ -46,7 +46,7 @@ Route::get('/FAQS', [PagesController::class, 'FAQS'])->name('FAQS');
 Route::get('/Sending-Email/{randomnumber}', [PagesController::class, 'SendEmail'])->name('Send.Email');
 Route::post('/Email-Data/{randomnumber}', [PostsController::class, 'EmailSendingOtp'])->name('Emailsending.Otp');
 Route::get('/Otp-Verfication/{randomnumber}', [PostsController::class, 'OtpVerification'])->name('Otp.Verification');
-Route::post('/VerifyUserOtp/{randomnumber}', [PostsController::class, 'EmailSendingOtp'])->name('Emailsending.Otp');
+Route::post('/VerifyUserOtp/{randomnumber}', [PostsController::class, 'OneTimePassword'])->name('OneTime.Password');
 
     Route::get('/TermsAndCondition', [PagesController::class, 'Termsandcondition'])->name('termandcondition');
 

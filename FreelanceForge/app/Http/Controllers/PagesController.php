@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class PagesController
 {
-    public function generateRandomString($length = 100)
+    public function generateRandomString($length = 70)
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=[]{}|;:,.<>?';
         $randomString = '';
@@ -90,6 +90,7 @@ class PagesController
     }
     public function OtpVerification($randomNumber) {
         $title = "Freelance Forge - Enter Otp";
+
         return view('User.Forgotpassword.OnlytimePassword', compact('title', 'randomNumber'));
     }
     
